@@ -1,6 +1,6 @@
 const fs = require("fs");
 let puzzle = fs
-  .readFileSync("./day14/example.txt", "utf-8")
+  .readFileSync("./day14/input.txt", "utf-8")
   .split("\r\n")
   .map((line) => line.split(""));
 let rocks = [];
@@ -30,7 +30,6 @@ puzzle
  
     })
   });
-console.log(puzzle, rocks);
 const move_up = () => {
   let canmove = true;
   let steps = 0;
@@ -110,16 +109,10 @@ const get_result = () => {
     })
     .reduce((acc, curr) => acc + curr, 0);
 };
-const find_sequence = (result) => {
-}
-let result = [];
 for (let i=0;i<1000;i++) {
   move_up();
   move_left();
   move_down();
   move_right();
-  console.log(get_result());
-  
-
+  console.log(i,get_result());
 }
-
